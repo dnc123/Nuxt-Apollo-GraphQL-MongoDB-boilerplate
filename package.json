@@ -1,19 +1,25 @@
 {
   "name": "boilerplate",
   "version": "1.0.0",
-  "description": "My perfect Nuxt.js project",
+  "description": "Nuxt GraphQL Apollo boilerplate",
   "author": "Donatas",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "db:start": "service mongod restart"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc7",
+    "express-graphql": "^0.8.0",
+    "mongodb": "^3.2.7",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.18.9",
+    "sass-loader": "^7.1.0"
   }
 }

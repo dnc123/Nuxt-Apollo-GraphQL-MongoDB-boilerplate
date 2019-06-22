@@ -1,0 +1,19 @@
+{
+    "name": "front",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@nuxtjs/apollo": "^4.0.0-rc7",
+        "nuxt": "^2.8.1"
+    },
+    "devDependencies": {
+        "node-sass": "^4.12.0",
+        "sass-loader": "^7.1.0"
+    }
+}
