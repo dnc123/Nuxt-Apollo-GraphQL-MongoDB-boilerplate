@@ -1,19 +1,23 @@
 {
-    "name": "front",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "@nuxtjs/apollo": "^4.0.0-rc7",
-        "nuxt": "^2.8.1"
-    },
-    "devDependencies": {
-        "node-sass": "^4.12.0",
-        "sass-loader": "^7.1.0"
-    }
+  "name": "front",
+  "version": "1.0.0",
+  "description": "My wicked Nuxt.js project",
+  "author": "Donatas",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc7",
+    "@nuxtjs/style-resources": "^0.1.2",
+    "nuxt": "^2.0.0",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0"
+  }
 }

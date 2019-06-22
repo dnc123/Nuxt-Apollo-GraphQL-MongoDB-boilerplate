@@ -1,12 +1,11 @@
 import expressServer from 'express';
 import expressGraphQL from 'express-graphql';
-import dotenv from 'dotenv';
+import dotEnv from 'dotenv';
 import mongo from 'mongodb';
 import {makeExecutableSchema} from 'graphql-tools/dist/index';
 import graphQLTypeDefs from './graphql/typeDefs';
 import graphQLResolvers from './graphql/resolvers';
-import {Nuxt, Builder} from 'nuxt';
-import nuxtConfig from '../../nuxt.config';
+import cors from 'cors';
 
 initApp().catch(e => {
     console.log('R.I.P.', e);
@@ -15,14 +14,18 @@ initApp().catch(e => {
 async function initApp() {
     initDotEnv();
     let express = initExpress();
+    initCors(express);
     await initDBConnection();
     initGraphQL(express);
-    await initNuxt(express);
     startServer(express);
 }
 
+function initCors(express) {
+    express.use(cors());
+}
+
 function initDotEnv() {
-    dotenv.config();
+    dotEnv.config();
 }
 
 function initExpress() {
@@ -42,7 +45,7 @@ async function initDBConnection() {
 }
 
 function initGraphQL(express) {
-    const IS_GRAPHIQL_ENABLED = process.env.APP_PRODUCTION === 'true';
+    const IS_GRAPHIQL_ENABLED = process.env.NODE_ENV === 'development';
 
     express.use(process.env.GRAPHQL_ENDPOINT, expressGraphQL({
         schema: makeExecutableSchema({
@@ -53,17 +56,6 @@ function initGraphQL(express) {
     }));
 }
 
-async function initNuxt(express) {
-    const nuxt = new Nuxt(nuxtConfig);
-
-    if (process.env.APP_PRODUCTION !== 'true') {
-        const builder = new Builder(nuxt);
-        await builder.build();
-    }
-
-    express.use(nuxt.render);
-}
-
 function startServer(express) {
-    express.listen(process.env.APP_POST, process.env.APP_URL);
+    express.listen(process.env.APP_PORT, process.env.APP_URL);
 }

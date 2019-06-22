@@ -1,3 +1,3 @@
 export default `
-    exampleQuery(someInput: String, anotherInput: Int): String
+    exampleQuery(someInput: String, anotherInput: Int): ExampleResponseObject
 `;

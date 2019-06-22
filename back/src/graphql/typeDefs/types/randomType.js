@@ -1,6 +1,5 @@
 export default `
-    type Explosion {
-        radius: Int
-        target: String
+    type ExampleResponseObject {
+        message: String
     }
 `
