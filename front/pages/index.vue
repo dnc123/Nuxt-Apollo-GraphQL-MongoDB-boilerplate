@@ -1,25 +1,20 @@
 <template>
     <div>
-        <h1>Index</h1>
+        <h1 @click='callExampleGraphQLQuery'>Hi, click me to call graphQL query</h1>
         <BaseComponentExample />
     </div>
 </template>
 
 <script>
-    import triggerExampleQuery from '@/apollo/triggerExampleQuery.gql';
+    import {mapActions} from 'vuex';
+    import {NAMESPACE as EXAMPLE_VUEX_MODULE_NAMESPACE} from '@/store/exampleVuexModule';
+    import {EXAMPLE_VUEX_MODULE_ACTIONS} from '@/store/exampleVuexModule/actions';
 
     export default {
-        mounted() {
-            console.log('test', this.$apollo);
-            this.$apollo.mutate({
-                mutation: triggerExampleQuery,
-                variables: {
-                    someInput: 'this is string input',
-                    anotherInput: 3,
-                },
-            }).then(exampleRequestResponse => {
-                console.log('resp', exampleRequestResponse);
-            });
+        methods: {
+            ...mapActions({
+                callExampleGraphQLQuery: `${EXAMPLE_VUEX_MODULE_NAMESPACE}/${EXAMPLE_VUEX_MODULE_ACTIONS.CALL_EXAMPLE_GRAPHQL_QUERY}`,
+            }),
         },
     }
 </script>

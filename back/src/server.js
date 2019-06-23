@@ -3,13 +3,10 @@ import expressGraphQL from 'express-graphql';
 import dotEnv from 'dotenv';
 import mongo from 'mongodb';
 import {makeExecutableSchema} from 'graphql-tools/dist/index';
-import graphQLTypeDefs from './graphql/typeDefs';
-import graphQLResolvers from './graphql/resolvers';
+import graphQLSchema from './graphql/schema';
 import cors from 'cors';
 
-initApp().catch(e => {
-    console.log('R.I.P.', e);
-});
+initApp();
 
 async function initApp() {
     initDotEnv();
@@ -37,7 +34,7 @@ function initExpress() {
 }
 
 async function initDBConnection() {
-    await mongo.MongoClient.connect(process.env.DB_URL, {
+    await mongo.MongoClient.connect(`${process.env.DB_URL}/${process.env.DB_NAME}`, {
         useNewUrlParser: true,
     }, (err, db) => {
         global.mongoDB = db.db(process.env.DB_NAME);
@@ -48,10 +45,7 @@ function initGraphQL(express) {
     const IS_GRAPHIQL_ENABLED = process.env.NODE_ENV === 'development';
 
     express.use(process.env.GRAPHQL_ENDPOINT, expressGraphQL({
-        schema: makeExecutableSchema({
-            typeDefs: graphQLTypeDefs,
-            resolvers: graphQLResolvers,
-        }),
+        schema: makeExecutableSchema(graphQLSchema),
         graphiql: IS_GRAPHIQL_ENABLED,
     }));
 }

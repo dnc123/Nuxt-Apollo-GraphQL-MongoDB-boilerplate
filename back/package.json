@@ -2,7 +2,7 @@
     "name": "back",
     "version": "1.0.0",
     "description": "",
-    "main": "server.js",
+    "main": "dist/server.js",
     "scripts": {
         "build": "webpack",
         "dev": "webpack && nodemon dist/server.js",

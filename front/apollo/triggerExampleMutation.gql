@@ -1,0 +1,5 @@
+mutation myExampleMutationRequestName($someInput: String, $anotherInput: Int) {
+    exampleQuery(someInput: $someInput, anotherInput: $anotherInput) {
+        message
+    }
+}
