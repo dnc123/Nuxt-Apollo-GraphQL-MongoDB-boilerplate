@@ -13,10 +13,12 @@
   "dependencies": {
     "@nuxtjs/style-resources": "^0.1.2",
     "apollo-boost": "^0.4.3",
+    "cross-fetch": "^3.0.4",
     "nuxt": "^2.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "graphql-tag": "^2.10.1",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0"
   }

@@ -70,7 +70,17 @@ export default {
         ** You can extend webpack config here
         */
         extend(config, ctx) {
-
+            config.module.rules.push(
+                {
+                    test: /\.gql$/,
+                    exclude: /node_modules/,
+                    use: [
+                        {
+                            loader: 'graphql-tag/loader',
+                        },
+                    ]
+                }
+            )
         },
     },
 
