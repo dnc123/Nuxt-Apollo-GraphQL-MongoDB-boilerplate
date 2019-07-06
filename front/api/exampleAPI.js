@@ -1,8 +1,6 @@
 import apolloTriggerExampleQuery from '@/apollo/triggerExampleQuery.gql';
 import apolloTriggerExampleMutation from '@/apollo/triggerExampleMutation.gql';
 
-// const APOLLO_CLIENT = $nux
-
 export function triggerExampleQuery(someInput, anotherInput) {
     return $nuxt.$apolloProvider.clients.defaultClient.query({
         query: apolloTriggerExampleQuery,

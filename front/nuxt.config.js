@@ -59,7 +59,6 @@ export default {
     ** Nuxt.js modules
     */
     modules: [
-        '@nuxtjs/apollo',
         '@nuxtjs/style-resources',
     ],
 
@@ -79,34 +78,5 @@ export default {
         scss: [
             '@/assets/scss/_variables.scss',
         ],
-    },
-
-    apollo: {
-        tokenName: 'yourApolloTokenName', // optional, default: apollo-token
-        tokenExpires: 10, // optional, default: 7 (days)
-        includeNodeModules: true, // optional, default: false (this includes graphql-tag for node_modules folder)
-        authenticationType: 'Basic', // optional, default: 'Bearer'
-        // required
-        clientConfigs: {
-            default: {
-                // required
-                httpEndpoint: 'http://localhost:3002/gql',
-                // optional
-                // See https://www.apollographql.com/docs/link/links/http.html#options
-                httpLinkOptions: {
-                    credentials: 'same-origin'
-                },
-                // You can use `wss` for secure connection (recommended in production)
-                // Use `null` to disable subscriptions
-                wsEndpoint: null, // optional
-                // LocalStorage token
-                tokenName: 'apollo-token', // optional
-                // Enable Automatic Query persisting with Apollo Engine
-                persisting: false, // Optional
-                // Use websockets for everything (no HTTP)
-                // You need to pass a `wsEndpoint` for this to work
-                websocketsOnly: false, // Optional
-            },
-        },
     },
 };
