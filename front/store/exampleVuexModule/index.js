@@ -6,7 +6,7 @@ import moduleGetters from '@/store/exampleVuexModule/getters';
 export const NAMESPACE = 'exampleVuexModule';
 
 export const state = moduleState;
-export const getters = moduleActions;
-export const actions = moduleMutations;
-export const mutations = moduleGetters;
+export const getters = moduleGetters;
+export const actions = moduleActions;
+export const mutations = moduleMutations;
 
