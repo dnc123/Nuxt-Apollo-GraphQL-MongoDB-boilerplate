@@ -8,13 +8,15 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "modules:reinstall": "sudo rm -rf node_modules && sudo rm -rf package.lock.json && npm install && npm install --only=dev"
   },
   "dependencies": {
     "@donatas123/utils": "^1.0.6",
     "@nuxtjs/style-resources": "^0.1.2",
     "apollo-boost": "^0.4.3",
     "cross-fetch": "^3.0.4",
+    "graphql": "^14.4.2",
     "nuxt": "^2.0.0",
     "vue": "^2.6.10"
   },
