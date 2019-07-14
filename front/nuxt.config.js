@@ -53,6 +53,7 @@ export default {
     */
     plugins: [
         '@/plugins/initBaseComponents',
+        '@/plugins/initApollo',
     ],
 
     /*

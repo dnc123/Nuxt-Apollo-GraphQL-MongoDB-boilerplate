@@ -2,7 +2,7 @@ import apolloTriggerExampleQuery from '@/apollo/triggerExampleQuery.gql';
 import apolloTriggerExampleMutation from '@/apollo/triggerExampleMutation.gql';
 
 export function triggerExampleQuery(someInput, anotherInput) {
-    return $nuxt.$apolloProvider.clients.defaultClient.query({
+    return apollo.query({
         query: apolloTriggerExampleQuery,
         variables: {
             someInput,
@@ -12,7 +12,7 @@ export function triggerExampleQuery(someInput, anotherInput) {
 }
 
 export function triggerExampleMutation(requestInput) {
-    return $nuxt.$apolloProvider.clients.defaultClient.mutate({
+    return apollo.mutate({
         mutation: apolloTriggerExampleMutation,
         variables: {
             requestInput,
